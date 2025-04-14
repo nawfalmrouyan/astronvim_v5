@@ -62,6 +62,11 @@ return {
           wo = { wrap = true },
         },
       },
+      bigfile = {},
+      quickfile = {},
+      statuscolumn = {},
+      words = {},
+      scroll = {},
     },
   },
 
