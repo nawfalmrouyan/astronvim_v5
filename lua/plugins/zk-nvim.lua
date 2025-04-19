@@ -1,15 +1,25 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 return {
   {
-    -- "zk-org/zk-nvim",
-    "pkazmier/zk-nvim",
-    branch = "snacks-picker",
+    "zk-org/zk-nvim",
+    -- "pkazmier/zk-nvim",
+    -- branch = "snacks-picker",
+    main = "zk",
+    event = "User AstroFile",
     cmd = {
+      "ZkIndex",
+      "ZkNew",
       "ZkNewFromTitleSelection",
       "ZkNewFromContentSelection",
+      "ZkCd",
       "ZkNotes",
-      "ZkTags",
+      "ZkBacklinks",
+      "ZkLinks",
+      "ZkInsertLinkAtSelection",
+      "ZkInsertLink",
       "ZkMatch",
-      "ZkNew",
+      "ZkTags",
       "ZkOrphans",
       "ZkRecents",
     },
