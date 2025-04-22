@@ -235,3 +235,6 @@ for _, key in pairs(keys) do
     { noremap = true, expr = true, desc = "Smart delete" }
   )
 end
+
+vim.keymap.set("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true }) -- duplicate and comment
+vim.keymap.set("x", "/", "<Esc>/\\%V") -- search within visual selection - this is magic
