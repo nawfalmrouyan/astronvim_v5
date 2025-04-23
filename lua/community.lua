@@ -44,7 +44,6 @@ return {
   { import = "astrocommunity.note-taking.zk-nvim" },
   { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.recipes.neovide" },
-  -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   { import = "astrocommunity.search.sad-nvim" },
   { import = "astrocommunity.syntax.vim-cool" },
   { import = "astrocommunity.terminal-integration.vim-tmux-navigator" },
