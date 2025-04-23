@@ -27,5 +27,3 @@ vim.filetype.add {
 
 require "neovide"
 require "keymaps"
-
-vim.cmd.colorscheme "catppuccin-mocha"
