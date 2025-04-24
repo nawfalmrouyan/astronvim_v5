@@ -1,31 +1,14 @@
 return {
-  { -- further customize the options set by the community
+  {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
     opts = {
       transparent_background = true,
-      -- custom_highlights = function(colors)
-      --   local u = require "catppuccin.utils.colors"
-      --   return {
-      --     CursorLine = {
-      --       bg = u.vary_color(
-      --         { latte = u.lighten(colors.mantle, 0.70, colors.base) },
-      --         u.darken(colors.surface0, 0.64, colors.base)
-      --       ),
-      --     },
-      --   }
-      -- end,
       integrations = {
-        -- aerial = true,
-        -- alpha = true,
         blink_cmp = true,
-        -- dadbod_ui = true,
         dap = true,
         dashboard = true,
-        -- fzf = true,
         gitsigns = true,
-        -- indent_blankline = { enabled = true },
         leap = true,
         lsp_trouble = true,
         markdown = true,
@@ -34,7 +17,6 @@ return {
         neotest = true,
         noice = true,
         notify = true,
-        -- nvim_surround = true,
         quickfix = true,
         render_markdown = true,
         semantic_tokens = true,
@@ -61,9 +43,6 @@ return {
         },
       },
     },
-    config = function()
-      require("catppuccin").setup {}
-      vim.cmd.colorscheme "catppuccin-mocha"
-    end,
+    config = function() require("catppuccin").setup {} end,
   },
 }
