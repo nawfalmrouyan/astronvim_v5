@@ -29,9 +29,9 @@ return {
           event = "CursorHold",
           pattern = "*",
           desc = "show diagnostic on Cursor",
-          callback = function() vim.cmd "lua vim.diagnostic.open_float({focusable = false})" end,
+          -- callback = function() vim.cmd "lua vim.diagnostic.open_float({focusable = false})" end,
+          callback = function() vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" }) end,
         },
-      },
       -- cursor_red = {
       --     {
       --      event = "colorscheme",
