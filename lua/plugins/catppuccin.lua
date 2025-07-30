@@ -4,6 +4,7 @@ return {
     name = "catppuccin",
     opts = {
       transparent_background = true,
+      auto_integrations = true,
       integrations = {
         blink_cmp = true,
         dap = true,
@@ -20,7 +21,10 @@ return {
         quickfix = true,
         render_markdown = true,
         semantic_tokens = true,
-        snacks = true,
+        snacks = {
+          enabled = true,
+          picker_style = "nvchad",
+        },
         symbol_outline = true,
         treesitter = true,
         treesitter_context = true,
