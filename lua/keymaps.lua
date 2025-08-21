@@ -238,3 +238,11 @@ end
 
 vim.keymap.set("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true }) -- duplicate and comment
 vim.keymap.set("x", "/", "<Esc>/\\%V") -- search within visual selection - this is magic
+
+-- paragraphy
+vim.keymap.set(
+  "n",
+  "<leader>yp",
+  [[:%s/\(\(\S\+\s\+\)\{100}\)/\1\r\r/g<CR>]],
+  { desc = "Insert newline after every 100 words" }
+)
