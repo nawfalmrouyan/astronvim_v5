@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.ps1" },
   { import = "astrocommunity.pack.python" },
+  -- { import = "astrocommunity.pack.typst" },
   -- { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.sql" },
   -- { import = "astrocommunity.pack.svelte" },
