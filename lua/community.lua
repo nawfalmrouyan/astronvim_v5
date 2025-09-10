@@ -34,6 +34,7 @@ return {
   { import = "astrocommunity.lsp.nvim-lint" },
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
+  { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.motion.flit-nvim" },
   { import = "astrocommunity.motion.grapple-nvim" },
   { import = "astrocommunity.motion.portal-nvim" },
