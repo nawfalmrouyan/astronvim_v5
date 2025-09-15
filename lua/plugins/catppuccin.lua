@@ -23,7 +23,6 @@ return {
         semantic_tokens = true,
         snacks = {
           enabled = true,
-          picker_style = "nvchad",
         },
         symbol_outline = true,
         treesitter = true,
