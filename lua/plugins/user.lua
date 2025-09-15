@@ -2,6 +2,19 @@
 return {
 
   -- == Examples of Adding Plugins ==
+  --
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-e>"] = { "cancel", "fallback" },
+      },
+    },
+  },
 
   "andweeb/presence.nvim",
   {
@@ -13,7 +26,8 @@ return {
   "max397574/better-escape.nvim",
   "dstein64/vim-startuptime",
 
-  { "none-ls", optional = true, enabled = false },
+  { "none-ls", optional = true, enabled = true },
+  { "aerial", optional = true, enabled = true },
 
   { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
 
