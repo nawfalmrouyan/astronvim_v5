@@ -81,6 +81,14 @@ return {
       statuscolumn = {},
       words = {},
       scroll = {},
+      picker = {
+        sources = {
+          grep = {
+            need_search = false,
+            live = false,
+          },
+        },
+      },
     },
   },
 
