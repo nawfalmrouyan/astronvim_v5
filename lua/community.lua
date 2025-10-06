@@ -22,6 +22,7 @@ return {
   -- { import = "astrocommunity.pack.terraform" },
   { import = "astrocommunity.pack.yaml" },
   -- import/override with your plugins folder
+  { import = "astrocommunity.ai.opencode-nvim" },
   { import = "astrocommunity.comment.ts-comments-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.dial-nvim" },
@@ -37,7 +38,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.media.image-nvim" },
-  { import = "astrocommunity.motion.flit-nvim" },
+  -- { import = "astrocommunity.motion.flit-nvim" },
   { import = "astrocommunity.motion.grapple-nvim" },
   { import = "astrocommunity.motion.portal-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
