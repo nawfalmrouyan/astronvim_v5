@@ -34,6 +34,7 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.fuzzy-finder.snacks-picker" },
+  { import = "astrocommunity.git.mini-diff" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.lsp.nvim-lint" },
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
