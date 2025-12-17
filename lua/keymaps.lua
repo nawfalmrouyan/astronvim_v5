@@ -244,6 +244,6 @@ vim.keymap.set("x", "/", "<Esc>/\\%V") -- search within visual selection - this 
 vim.keymap.set(
   "n",
   "<leader>yp",
-  [[:%s/\(\(\S\+\s\+\)\{100}\)/\1\r\r/g<CR>]],
+  [[:%s/\(\(\S\+\s\+\)\{70}\)/\1\r\r/g<CR>]],
   { desc = "Insert newline after every 100 words" }
 )

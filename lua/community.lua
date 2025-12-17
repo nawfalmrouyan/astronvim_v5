@@ -1,12 +1,12 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.ansible" },
+  -- { import = "astrocommunity.pack.ansible" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.docker" },
   -- { import = "astrocommunity.pack.full-dadbod" },
   { import = "astrocommunity.pack.go" },
-  { import = "astrocommunity.pack.html-css" },
+  -- { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.markdown" },
@@ -22,7 +22,7 @@ return {
   -- { import = "astrocommunity.pack.terraform" },
   { import = "astrocommunity.pack.yaml" },
   -- import/override with your plugins folder
-  { import = "astrocommunity.ai.opencode-nvim" },
+  -- { import = "astrocommunity.ai.opencode-nvim" },
   { import = "astrocommunity.comment.ts-comments-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
