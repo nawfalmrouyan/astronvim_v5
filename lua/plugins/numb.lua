@@ -1,6 +1,7 @@
 return {
   {
     "nacro90/numb.nvim",
+    enabled = false,
     event = "User AstroFile",
     config = function()
       require("numb").setup {
