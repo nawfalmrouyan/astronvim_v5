@@ -35,6 +35,7 @@ return {
   { import = "astrocommunity.editing-support.vim-visual-multi" },
   { import = "astrocommunity.fuzzy-finder.snacks-picker" },
   { import = "astrocommunity.git.mini-diff" },
+  { import = "astrocommunity.git.vscode-diff-nvim" },
   -- { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.lsp.nvim-lint" },
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
