@@ -1,7 +1,7 @@
 if vim.g.neovide then
   -- neovide font setup
   -- vim.opt.guifont = "PragmataPro Nerd Font Mono:h16"
-  vim.opt.guifont = "PragmataPro Mono Liga"
+  vim.opt.guifont = "Pragmasevka Nerd Font Propo:h15"
 
   -- Helper function for transparency formatting
   local alpha = function() return string.format("%x", math.floor(255 * (vim.g.transparency or 0.8))) end
