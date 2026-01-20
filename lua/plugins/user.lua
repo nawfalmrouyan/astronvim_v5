@@ -3,18 +3,18 @@ return {
 
   -- == Examples of Adding Plugins ==
   --
-  -- {
-  --   "saghen/blink.cmp",
-  --   opts = {
-  --     keymap = {
-  --       preset = "default",
-  --       ["<Tab>"] = { "select_next", "fallback" },
-  --       ["<S-Tab>"] = { "select_prev", "fallback" },
-  --       ["<CR>"] = { "accept", "fallback" },
-  --       ["<C-e>"] = { "cancel", "fallback" },
-  --     },
-  --   },
-  -- },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-e>"] = { "cancel", "fallback" },
+      },
+    },
+  },
 
   "andweeb/presence.nvim",
   {
@@ -27,11 +27,12 @@ return {
   "dstein64/vim-startuptime",
 
   { "none-ls", optional = true, enabled = true },
-  { "aerial", optional = true, enabled = true },
+  { "aerial", optional = true, enabled = false },
+  { "neo-tree.nvim", optional = true, enabled = false },
 
   { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
 
-  { "tpope/vim-fugitive", cmd = "G" },
+  -- { "tpope/vim-fugitive", cmd = "G" },
 
   {
     "folke/persistence.nvim",
@@ -115,36 +116,4 @@ return {
       luasnip.filetype_extend("javascript", { "javascriptreact" })
     end,
   },
-
-  -- {
-  --   "windwp/nvim-autopairs",
-  --   config = function(plugin, opts)
-  --     require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- add more custom autopairs configuration such as custom rules
-  --     local npairs = require "nvim-autopairs"
-  --     local Rule = require "nvim-autopairs.rule"
-  --     local cond = require "nvim-autopairs.conds"
-  --     npairs.add_rules(
-  --       {
-  --         Rule("$", "$", { "tex", "latex" })
-  --           -- don't add a pair if the next character is %
-  --           :with_pair(cond.not_after_regex "%%")
-  --           -- don't add a pair if  the previous character is xxx
-  --           :with_pair(
-  --             cond.not_before_regex("xxx", 3)
-  --           )
-  --           -- don't move right when repeat character
-  --           :with_move(cond.none())
-  --           -- don't delete if the next character is xx
-  --           :with_del(cond.not_after_regex "xx")
-  --           -- disable adding a newline when you press <cr>
-  --           :with_cr(cond.none()),
-  --       },
-  --       -- disable for .vim files, but it work for another filetypes
-  --       Rule("a", "a", "-vim")
-  --     )
-  --   end,
-  -- },
-  --
-  -- { "wakatime/vim-wakatime", event = "User AstroFile" },
 }

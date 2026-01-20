@@ -1,12 +1,13 @@
 return {
   {
     "monkoose/neocodeium",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     keys = {
       { "<A-g>", function() require("neocodeium").accept() end, mode = "i" },
       { "<C-l>", function() require("neocodeium").accept_word() end, mode = "i" },
       { "<C-j>", function() require("neocodeium").accept_line() end, mode = "i" },
+      { "<A-f>", function() require("neocodeium").accept() end, mode = "i" },
       { "<A-e>", function() require("neocodeium").cycle_or_complete() end, mode = "i" },
       { "<A-r>", function() require("neocodeium").cycle_or_complete(-1) end, mode = "i" },
       { "<A-c>", function() require("neocodeium").clear() end, mode = "i" },
