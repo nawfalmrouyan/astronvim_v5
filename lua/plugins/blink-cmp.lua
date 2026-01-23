@@ -1,5 +1,5 @@
 return {
-  "blink.cmp",
+  "saghen/blink.cmp",
   dependencies = {
     "daliusd/blink-cmp-fuzzy-path",
   },
@@ -15,6 +15,16 @@ return {
       opts = {
         filetypes = { "markdown", "json" }, -- optional
       },
+    }
+
+    if not opts.keymap then opts.keymap = {} end
+
+    opts.keymap = {
+      preset = "default",
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<CR>"] = { "accept", "fallback" },
+      ["<C-e>"] = { "cancel", "fallback" },
     }
   end,
 }

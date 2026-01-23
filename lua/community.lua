@@ -24,7 +24,7 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.ai.opencode-nvim" },
   { import = "astrocommunity.comment.ts-comments-nvim" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.dial-nvim" },
   -- { import = "astrocommunity.editing-support.conform-nvim" },
