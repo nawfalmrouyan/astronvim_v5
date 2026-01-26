@@ -20,8 +20,11 @@ return {
         localleader = "<localleader>",
       },
       picker = {
-        backend = "auto", -- "auto", "telescope", "fzf_lua", "snacks", "mini", "vim_ui"
-        fallback_notify = true,
+        backend = "snacks", -- "auto", "telescope", "fzf_lua", "snacks", "mini", "vim_ui"
+        fallback_notify = false,
+      },
+      telescope = {
+        enabled = false,
       },
       preview = {
         output_dir = "~/tmp/preview",
