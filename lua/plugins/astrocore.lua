@@ -65,6 +65,7 @@ return {
         -- test highlight only line number.
         cursorline = true,
         cursorlineopt = "both",
+        showtabline = 0,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
