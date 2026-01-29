@@ -1,5 +1,6 @@
 return {
   "zeybek/camouflage.nvim",
+  enabled = false,
   event = "VeryLazy",
   enabled = false,
   opts = {},

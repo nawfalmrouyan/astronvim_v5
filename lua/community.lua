@@ -43,6 +43,7 @@ return {
   -- { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.markdown-and-latex.markview-nvim" },
   { import = "astrocommunity.media.image-nvim" },
+  { import = "astrocommunity.media.vim-wakatime" },
   { import = "astrocommunity.motion.grapple-nvim" },
   { import = "astrocommunity.motion.portal-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },

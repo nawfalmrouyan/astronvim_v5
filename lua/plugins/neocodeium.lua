@@ -1,7 +1,7 @@
 return {
   {
     "monkoose/neocodeium",
-    enabled = false,
+    enabled = true,
     event = "VeryLazy",
     keys = {
       { "<A-g>", function() require("neocodeium").accept() end, mode = "i" },
