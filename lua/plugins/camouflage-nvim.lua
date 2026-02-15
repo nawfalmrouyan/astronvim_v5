@@ -1,6 +1,7 @@
 return {
   "zeybek/camouflage.nvim",
   event = "VeryLazy",
+  enabled = false,
   opts = {},
   keys = {
     { "<leader>c", nil },
