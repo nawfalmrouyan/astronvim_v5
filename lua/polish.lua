@@ -34,7 +34,6 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
     local ev = vim.v.event
     local is_search_cmd = (ev.cmdtype == "/") or (ev.cmdtype == "?")
     local cnt = vim.fn.searchcount().total
-
     if is_search_cmd and not ev.abort and (cnt > 1) then
       -- Allow CmdLineLeave-related chores to be completed before
       -- invoking Leap.
@@ -44,13 +43,12 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
         -- as `labels`, with n/N removed.
         local labels = require("leap").opts.safe_labels:gsub("[nN]", "")
         -- For `pattern` search, we never need to adjust conceallevel
-        -- (no user input).
-        local vim_opts = require("leap").opts.vim_opts
-        vim_opts["wo.conceallevel"] = nil
-
+        -- (no user input). We cannot merge `nil` from a table, but
+        -- using the option's current value has the same effect.
+        local vim_opts = { ["wo.conceallevel"] = vim.wo.conceallevel }
         require("leap").leap {
           pattern = vim.fn.getreg "/", -- last search pattern
-          target_windows = { vim.fn.win_getid() },
+          windows = { vim.fn.win_getid() },
           opts = { safe_labels = "", labels = labels, vim_opts = vim_opts },
         }
       end)
@@ -59,32 +57,86 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 })
 
 do
-  -- Returns an argument table for `leap()`, tailored for f/t-motions.
-  local function as_ft(key_specific_args)
-    local common_args = {
+  local function ft(key_specific_args)
+    require("leap").leap(vim.tbl_deep_extend("keep", key_specific_args, {
+      -- Uncomment to limit search scope to the current line:
+      -- pattern = function(pat) return '\\%.l' .. pat end,
       inputlen = 1,
-      inclusive_op = true,
-      -- To limit search scope to the current line:
-      -- pattern = function (pat) return '\\%.l'..pat end,
+      inclusive = true,
       opts = {
-        labels = "", -- force autojump
-        safe_labels = vim.fn.mode(1):match "o" and "" or nil, -- [1]
-        case_sensitive = true, -- [2]
+        -- Force autojump.
+        labels = "",
+        -- Match the modes where you don't need labels (`:h mode()`).
+        safe_labels = vim.fn.mode(1):match "o" and "" or nil,
       },
-    }
-    return vim.tbl_deep_extend("keep", common_args, key_specific_args)
+    }))
   end
 
-  local clever = require("leap.user").with_traversal_keys -- [3]
-  local clever_f = clever("f", "F")
-  local clever_t = clever("t", "T")
+  -- A helper function making it easier to set "clever-f" behavior
+  -- (use f/F or t/T instead of ;/, - see the plugin clever-f.vim).
+  local clever = require("leap.user").with_traversal_keys
+  local clever_f, clever_t = clever("f", "F"), clever("t", "T")
 
-  for key, args in pairs {
-    f = { opts = clever_f },
-    F = { backward = true, opts = clever_f },
-    t = { offset = -1, opts = clever_t },
-    T = { backward = true, offset = 1, opts = clever_t },
-  } do
-    vim.keymap.set({ "n", "x", "o" }, key, function() require("leap").leap(as_ft(args)) end)
-  end
+  vim.keymap.set({ "n", "x", "o" }, "f", function() ft { opts = clever_f } end)
+  vim.keymap.set({ "n", "x", "o" }, "F", function() ft { backward = true, opts = clever_f } end)
+  vim.keymap.set({ "n", "x", "o" }, "t", function() ft { offset = -1, opts = clever_t } end)
+  vim.keymap.set({ "n", "x", "o" }, "T", function() ft { backward = true, offset = 1, opts = clever_t } end)
 end
+
+do
+  local function leap_search(key, is_reverse)
+    local cmdline_mode = vim.fn.mode(true):match "^c"
+    if cmdline_mode then
+      -- Finish the search command.
+      vim.api.nvim_feedkeys(vim.keycode "<enter>", "t", false)
+    end
+    if vim.fn.searchcount().total < 1 then return end
+    -- Activate again if `:nohlsearch` has been used (Normal/Visual mode).
+    vim.go.hlsearch = vim.go.hlsearch
+    -- Allow the search command to complete its chores before
+    -- invoking Leap (Command-line mode).
+    vim.schedule(function()
+      require("leap").leap {
+        pattern = vim.fn.getreg "/",
+        -- If you always want to go forward/backward with the given key,
+        -- regardless of the previous search direction, just set this to
+        -- `is_reverse`.
+        backward = (is_reverse and vim.v.searchforward == 1) or (not is_reverse and vim.v.searchforward == 0),
+        opts = require("leap.user").with_traversal_keys(key, nil, {
+          -- Auto-jumping to the second match would be confusing without
+          -- 'incsearch'.
+          safe_labels = (cmdline_mode and not vim.o.incsearch) and ""
+            -- Keep n/N usable in any case.
+            or require("leap").opts.safe_labels:gsub("[nN]", ""),
+        }),
+      }
+      -- You might want to switch off the highlights after leaping.
+      -- vim.cmd('nohlsearch')
+    end)
+  end
+
+  vim.keymap.set(
+    { "n", "x", "o", "c" },
+    "<c-s>",
+    function() leap_search("<c-s>", false) end,
+    { desc = "Leap to search matches" }
+  )
+
+  vim.keymap.set(
+    { "n", "x", "o", "c" },
+    "<c-q>",
+    function() leap_search("<c-q>", true) end,
+    { desc = "Leap to search matches (reverse)" }
+  )
+end
+
+vim.keymap.set({ "n", "x", "o" }, "|", function()
+  local line = vim.fn.line "."
+  -- Skip 3-3 lines around the cursor.
+  local top, bot = unpack { math.max(1, line - 3), line + 3 }
+  require("leap").leap {
+    pattern = "\\v(%<" .. top .. "l|%>" .. bot .. "l)$",
+    windows = { vim.fn.win_getid() },
+    opts = { safe_labels = "" },
+  }
+end)
