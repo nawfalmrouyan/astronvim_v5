@@ -12,7 +12,8 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.ps1" },
   -- { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.pack.python-ruff" },
+  -- { import = "astrocommunity.pack.python.basedpyright" },
+  -- { import = "astrocommunity.pack.python.ruff" },
   -- { import = "astrocommunity.pack.hyprlang" },
   -- { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.sql" },
@@ -65,5 +66,5 @@ return {
   { import = "astrocommunity.terminal-integration.vim-tmux-navigator" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
   { import = "astrocommunity.utility.neodim" },
-  -- { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.utility.noice-nvim" },
 }
