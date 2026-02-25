@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      transparent_background = true,
+      transparent_background = false,
       auto_integrations = true,
       integrations = {
         blink_cmp = true,
