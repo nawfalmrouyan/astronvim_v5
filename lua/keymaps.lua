@@ -144,7 +144,7 @@ vim.keymap.set("n", "<leader>ad", function()
           if success then
             vim.api.nvim_echo({
               { "Image file deleted from disk:\n", "Normal" },
-              { absolute_image_path, "Normal" },
+              { absolute_image_path,               "Normal" },
             }, false, {})
             -- I'll refresh the images, but will clear them first
             -- I'm using [[ ]] to escape the special characters in a command
@@ -154,7 +154,7 @@ vim.keymap.set("n", "<leader>ad", function()
           else
             vim.api.nvim_echo({
               { "Failed to delete image file:\n", "ErrorMsg" },
-              { absolute_image_path, "ErrorMsg" },
+              { absolute_image_path,              "ErrorMsg" },
             }, false, {})
           end
         else
@@ -239,7 +239,7 @@ end, { desc = "Decrease .md headings without confirmation" })
 -- end
 
 vim.keymap.set("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true }) -- duplicate and comment
-vim.keymap.set("x", "/", "<Esc>/\\%V") -- search within visual selection - this is magic
+vim.keymap.set("x", "/", "<Esc>/\\%V")                                                   -- search within visual selection - this is magic
 
 -- paragraphy
 vim.keymap.set(
@@ -248,3 +248,20 @@ vim.keymap.set(
   [[:%s/\(\(\S\+\s\+\)\{70}\)/\1\r\r/g<CR>]],
   { desc = "Insert newline after every 100 words" }
 )
+
+-- incremental selection treesitter/lsp
+vim.keymap.set({ "n", "x", "o" }, "<A-o>", function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = "Select parent treesitter node or outer incremental lsp selections" })
+
+vim.keymap.set({ "n", "x", "o" }, "<A-i>", function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require("vim.treesitter._select").select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = "Select child treesitter node or inner incremental lsp selections" })
