@@ -26,11 +26,11 @@ return {
   "max397574/better-escape.nvim",
   "dstein64/vim-startuptime",
 
-  { "none-ls", optional = true, enabled = true },
-  { "aerial", optional = true, enabled = false },
+  { "none-ls",       optional = true, enabled = true },
+  { "aerial",        optional = true, enabled = false },
   { "neo-tree.nvim", optional = true, enabled = false },
 
-  { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
+  -- { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
 
   -- { "tpope/vim-fugitive", cmd = "G" },
 
@@ -40,18 +40,18 @@ return {
     opts = { need = 0 },
   },
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          node_incremental = "v",
-          node_decremental = "V",
-        },
-      },
-    },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     incremental_selection = {
+  --       enable = true,
+  --       keymaps = {
+  --         node_incremental = "v",
+  --         node_decremental = "V",
+  --       },
+  --     },
+  --   },
+  -- },
 
   -- == Examples of Overriding Plugins ==
 
@@ -94,26 +94,20 @@ return {
     },
   },
 
-  {
-    "neo-tree.nvim",
-    optional = true,
-    enabled = false,
-  },
-
-  {
-    "smart-splits.nvim",
-    optional = true,
-    enabled = false,
-  },
+  -- {
+  --   "smart-splits.nvim",
+  --   optional = true,
+  --   enabled = false,
+  -- },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
-  {
-    "L3MON4D3/LuaSnip",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom luasnip configuration such as filetype extend or custom snippets
-      local luasnip = require "luasnip"
-      luasnip.filetype_extend("javascript", { "javascriptreact" })
-    end,
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   config = function(plugin, opts)
+  --     require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
+  --     -- add more custom luasnip configuration such as filetype extend or custom snippets
+  --     local luasnip = require "luasnip"
+  --     luasnip.filetype_extend("javascript", { "javascriptreact" })
+  --   end,
+  -- },
 }
