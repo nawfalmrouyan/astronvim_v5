@@ -4,7 +4,10 @@ return {
   opts = {
     treesitter = {
       ensure_installed = { "vim", "lua" },
-      highlight = true,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = true,
+      },
       textobjects = {
         select = {
           select_textobject = {
