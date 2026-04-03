@@ -26,8 +26,8 @@ return {
   "max397574/better-escape.nvim",
   "dstein64/vim-startuptime",
 
-  { "none-ls",       optional = true, enabled = true },
-  { "aerial",        optional = true, enabled = false },
+  { "none-ls", optional = true, enabled = true },
+  { "aerial", optional = true, enabled = false },
   { "neo-tree.nvim", optional = true, enabled = false },
 
   -- { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
