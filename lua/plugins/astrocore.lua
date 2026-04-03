@@ -79,7 +79,6 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
-
         -- navigate buffer tabs with `H` and `L`
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
@@ -120,8 +119,8 @@ return {
         -- ["J"] = "mzJ`z"
         -- ["<C-d>"] = { "<C-d>zz", desc = "Scroll half page down" },
         -- ["<C-u>"] = { "<C-u>zz", desc = "Scroll half page up" },
-        ["n"] = { "nzzzv", desc = "Next search result" },
-        ["N"] = { "Nzzzv", desc = "Previous search result" },
+        -- ["n"] = { "nzzzv", desc = "Next search result" },
+        -- ["N"] = { "Nzzzv", desc = "Previous search result" },
         ["Q"] = { "<nop>", desc = "Disable Ex mode" },
         ["<M-w>"] = { ":set wrap! wrap?<cr>", desc = "Toggle wrap" },
         ["<M-r>"] = { ":set relativenumber! relativenumber?<cr>", desc = "Toggle relative number" },

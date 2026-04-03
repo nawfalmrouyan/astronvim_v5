@@ -1,8 +1,5 @@
 ---@type LazySpec
 return {
-
-  -- == Examples of Adding Plugins ==
-  --
   {
     "saghen/blink.cmp",
     opts = {
@@ -17,43 +14,26 @@ return {
   },
 
   "andweeb/presence.nvim",
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "BufRead",
+  --   config = function() require("lsp_signature").setup() end,
+  -- },
 
   "max397574/better-escape.nvim",
-  "dstein64/vim-startuptime",
+  -- "dstein64/vim-startuptime",
+  -- { "tpope/vim-fugitive", cmd = "G" },
 
   { "none-ls", optional = true, enabled = true },
   { "aerial", optional = false, enabled = false },
   { "neo-tree.nvim", optional = false, enabled = false },
-
-  -- { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
-
-  -- { "tpope/vim-fugitive", cmd = "G" },
+  -- { "smart-splits.nvim", optional = true, enabled = false },
 
   {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = { need = 0 },
   },
-
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = {
-  --     incremental_selection = {
-  --       enable = true,
-  --       keymaps = {
-  --         node_incremental = "v",
-  --         node_decremental = "V",
-  --       },
-  --     },
-  --   },
-  -- },
-
-  -- == Examples of Overriding Plugins ==
 
   -- customize dashboard options
   {
@@ -93,21 +73,4 @@ return {
       },
     },
   },
-
-  -- {
-  --   "smart-splits.nvim",
-  --   optional = true,
-  --   enabled = false,
-  -- },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   config = function(plugin, opts)
-  --     require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-  --     -- add more custom luasnip configuration such as filetype extend or custom snippets
-  --     local luasnip = require "luasnip"
-  --     luasnip.filetype_extend("javascript", { "javascriptreact" })
-  --   end,
-  -- },
 }
