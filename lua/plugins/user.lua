@@ -27,8 +27,8 @@ return {
   "dstein64/vim-startuptime",
 
   { "none-ls", optional = true, enabled = true },
-  { "aerial", optional = true, enabled = false },
-  { "neo-tree.nvim", optional = true, enabled = false },
+  { "aerial", optional = false, enabled = false },
+  { "neo-tree.nvim", optional = false, enabled = false },
 
   -- { "RRethy/nvim-treesitter-textsubjects", event = "User AstroFile", before = "nvim-treesitter" },
 
