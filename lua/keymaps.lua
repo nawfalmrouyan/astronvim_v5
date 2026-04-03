@@ -246,7 +246,7 @@ vim.keymap.set(
   "n",
   "<leader>yp",
   [[:%s/\(\(\S\+\s\+\)\{70}\)/\1\r\r/g<CR>]],
-  { desc = "Insert newline after every 100 words" }
+  { desc = "Insert newline after every 70 words" }
 )
 
 -- https://www.reddit.com/r/neovim/comments/1s9q0pi/incremental_selection_in_neovim_012/
