@@ -24,10 +24,10 @@ return {
   -- "dstein64/vim-startuptime",
   -- { "tpope/vim-fugitive", cmd = "G" },
 
-  { "none-ls", optional = true, enabled = true },
-  { "aerial", optional = false, enabled = false },
-  { "neo-tree.nvim", optional = false, enabled = false },
-  -- { "smart-splits.nvim", optional = true, enabled = false },
+  { "none-ls",           optional = true,  enabled = true },
+  { "aerial",            optional = false, enabled = false },
+  { "neo-tree.nvim",     optional = false, enabled = false },
+  { "smart-splits.nvim", optional = true,  enabled = false },
 
   {
     "folke/persistence.nvim",
