@@ -1,3 +1,4 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 if vim.g.neovide then
   -- neovide font setup
   -- vim.opt.guifont = "PragmataPro Nerd Font Mono:h16"
