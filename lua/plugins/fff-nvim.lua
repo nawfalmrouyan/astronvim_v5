@@ -1,3 +1,4 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "dmtrKovalenko/fff.nvim",
   build = function()
@@ -7,9 +8,9 @@ return {
   end,
   -- if you are using nixos
   -- build = "nix run .#release",
-  opts = { -- (optional)
+  opts = {                 -- (optional)
     debug = {
-      enabled = false, -- we expect your collaboration at least during the beta
+      enabled = false,     -- we expect your collaboration at least during the beta
       show_scores = false, -- to help us optimize the scoring system, feel free to share your scores!
     },
   },
