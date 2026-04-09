@@ -21,7 +21,7 @@ return {
       -- automatically update working directory (update manually with `:AstroRoot`)
       autochdir = true,
       -- scope of working directory to change ("global"|"tab"|"win")
-      scope = "global",
+      scope = "win",
       -- show notification on every working directory change
       notify = true,
     },
