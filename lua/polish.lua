@@ -25,7 +25,7 @@ vim.filetype.add {
 --   "sm:block-blinkwait175-blinkoff150-blinkon175",
 -- }
 
-require "neovide"
+-- require "neovide"
 require "keymaps"
 
 vim.api.nvim_create_autocmd("CmdlineLeave", {
