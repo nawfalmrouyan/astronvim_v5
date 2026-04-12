@@ -56,7 +56,7 @@ return {
   { import = "astrocommunity.recipes.picker-nvchad-theme" },
   -- { import = "astrocommunity.recipes.picker-lsp-mappings" },
   -- { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
-  { import = "astrocommunity.syntax.vim-cool" },
+  -- { import = "astrocommunity.syntax.vim-cool" },
   { import = "astrocommunity.terminal-integration.vim-tmux-navigator" },
   { import = "astrocommunity.terminal-integration.vim-tmux-yank" },
 }
