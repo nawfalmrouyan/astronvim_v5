@@ -33,11 +33,11 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
   callback = function()
     local ev = vim.v.event
     local is_search_cmd = (ev.cmdtype == "/") or (ev.cmdtype == "?")
-    local cnt = vim.fn.searchcount().total
-    if is_search_cmd and not ev.abort and (cnt > 1) then
-      -- Allow CmdLineLeave-related chores to be completed before
-      -- invoking Leap.
-      vim.schedule(function()
+    -- Allow CmdLineLeave-related chores to be completed before
+    -- invoking Leap.
+    vim.schedule(function()
+      local cnt = vim.fn.searchcount().total
+      if is_search_cmd and not ev.abort and (cnt > 1) then
         -- We want "safe" labels, but no auto-jump (as the search
         -- command already does that), so just use `safe_labels`
         -- as `labels`, with n/N removed.
@@ -51,8 +51,8 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
           windows = { vim.fn.win_getid() },
           opts = { safe_labels = "", labels = labels, vim_opts = vim_opts },
         }
-      end)
-    end
+      end
+    end)
   end,
 })
 
