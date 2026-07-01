@@ -97,3 +97,11 @@ end)
 require("vim._core.ui2").enable { enable = true }
 vim.cmd "packadd nvim.undotree"
 vim.keymap.set("n", "<leader>u", require("undotree").open)
+
+-- vim.opt.fillchars = {
+--   fold = " ",
+--   foldopen = "▾",
+--   foldclose = "▸",
+--   foldinner = " ",
+--   foldsep = " ",
+-- }
