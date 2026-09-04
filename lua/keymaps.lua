@@ -78,3 +78,33 @@ vim.keymap.set({ "n", "x", "o" }, "<M-i>", function()
     vim.lsp.buf.selection_range(-vim.v.count1)
   end
 end, { desc = "Select child treesitter node or inner incremental lsp selections" })
+
+if vim.fn.has 'nvim-0.13' == 1 then
+  local mcursor_ns = vim.api.nvim_create_namespace 'nvim.multicursor'
+  local function has_cursor(start, stop) return #vim.api.nvim_buf_get_extmarks(0, mcursor_ns, start, stop, { limit = 1 }) > 0 end
+
+  -- Add a cursor at the next occurrence of the word under the cursor. 
+  vim.keymap.set('n', '<C-n>', function()
+    if has_cursor(0, -1) then
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+      -- Wrapped onto an occurrence that already has a cursor: all are selected.
+      if has_cursor({ row - 1, col }, { row - 1, col }) then return end
+    else
+      local word = vim.fn.expand '<cword>'
+      if word == '' then return end
+      local pattern = [[\<]] .. vim.fn.escape(word, [[\/]]) .. [[\>]]
+      vim.fn.setreg('/', pattern)
+      vim.o.hlsearch = true
+      vim.fn.search(pattern, 'bcW')
+    end
+
+    vim.cmd 'normal! Qn1q='
+  end, { desc = 'Add multicursor at next occurrence of word under cursor' })
+
+  -- clear multicursor bind
+  vim.keymap.set( { 'n', 'x'}, '<C-q>', function ()
+    local mc_ns = vim.api.nvim_create_namespace('nvim.multicursor')
+	  vim.api.nvim_buf_clear_namespace(0, mc_ns, 0, -1)
+	end, { desc = "Clears multicursors"})
+end
+

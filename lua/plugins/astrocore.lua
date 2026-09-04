@@ -136,7 +136,7 @@ return {
         -- ["<C-u>"] = { "<C-u>zz", desc = "Scroll half page up" },
         -- ["n"] = { "nzzzv", desc = "Next search result" },
         -- ["N"] = { "Nzzzv", desc = "Previous search result" },
-        ["Q"] = { "<nop>", desc = "Disable Ex mode" },
+        -- ["Q"] = { "<nop>", desc = "Disable Ex mode" },
         ["<M-w>"] = { ":set wrap! wrap?<cr>", desc = "Toggle wrap" },
         ["<M-r>"] = { ":set relativenumber! relativenumber?<cr>", desc = "Toggle relative number" },
         ["<leader>fs"] = { "<cmd>%s/\\s\\+$//e<cr>:noh<cr>", desc = "Delete trailing whitespace from file" },
