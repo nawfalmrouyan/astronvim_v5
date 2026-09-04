@@ -4,6 +4,7 @@ return {
   opts = {
     colorscheme = "catppuccin-mocha",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
+    -- enable transparent background
     highlights = {
       init = function()
         -- highlight groups we want to KEEP as-is (including their bg)

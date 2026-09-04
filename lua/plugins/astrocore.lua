@@ -80,7 +80,9 @@ return {
         cursorline = true,
         cursorlineopt = "both",
         -- showtabline = 0,
-        cmdheight = 0,
+        -- cmdheight = 0,
+        autoread = true,
+        autocomplete = true,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
