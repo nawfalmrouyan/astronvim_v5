@@ -7,12 +7,13 @@ vim.filetype.add {
     -- ["Foofile"] = "fooscript",
     [".env"] = "config",
     [".todo"] = "txt",
+    [".eml"] = "txt",
+    [".list"] = "txt",
   },
   pattern = {
     -- ["~/%.config/foo/.*"] = "fooscript",
     ["req.*.txt"] = "config",
     ["gitconf.*"] = "gitconfig",
-    [".*/hyprland%.conf"] = "hyprlang",
   },
 }
 
